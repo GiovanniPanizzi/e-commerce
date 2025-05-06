@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <body>
+        <a href="index.html"> Torna alla pagina principale </a>
+        <input type="text" id="email-field"> Email
+        <input type="text" id="password-field"> Password
+        <button id="login-button">Log in</button>
+        <script>
+            emailField = document.getElementById("email-field");
+            passwordField = document.getElementById("password-field");
+            loginButton = document.getElementById("login-button");
+
+            loginButton.addEventListener("click", login);
+
+            function login(){
+                const email = emailField.value;
+                const password = passwordField.value;
+                fetch('http://localhost:3000/api/v1/login', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                })
+                .then(async response => {
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(data.message || 'Errore sconosciuto');
+                }
+                console.log(data);
+                sessionStorage.setItem("token", data.token);
+                })
+                .catch(error => {
+                    console.error('Errore durante il login:', error.message);
+                });
+            }
+        </script>
+    </body>
+</html>

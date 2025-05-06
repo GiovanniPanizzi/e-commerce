@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <input type="text" id="email-input"> email
+        <input type="text" id="userName-input"> nome utente
+        <input type="text" id="telephoneNumber-input"> numero di telefono
+        <input type="text" id="password-input"> password
+        <button id="enter-button"> Registrati </button>
+        <p>Sei già registrato?</p>
+        <a href="login.html">Effettua il log in</a>
+
+        <script id="registration">
+            emailInput = document.getElementById("email-input");
+            usernameInput = document.getElementById("userName-input");
+            telephoneInput = document.getElementById("telephoneNumber-input");
+            passwordInput = document.getElementById("password-input");
+            enterButton = document.getElementById("enter-button");
+
+            enterButton.addEventListener("click", inviaDati);
+
+            function inviaDati(){
+                const email = emailInput.value;
+                const name = usernameInput.value;
+                const number = telephoneInput.value;
+                const password = passwordInput.value;
+
+                fetch('http://localhost:3000/api/v1/registration',  {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        phone: number,
+                        password: password
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Risposta dal server:', data);
+                })
+                .catch(error => {
+                    console.error('Errore nella richiesta:', error);
+                });
+            }
+        </script>
+    </body>
+</html>

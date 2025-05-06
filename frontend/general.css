@@ -1,0 +1,106 @@
+:root {
+    /* margin sizes */
+    --margin-xxs: .25rem;
+    --margin-xs: .5rem;
+    --margin-s: .75rem;
+    --margin-m: 1rem;
+    --margin-l: 1.25rem;
+    --margin-xl: 1.75rem;
+    --margin-xxl: 2.5rem;
+    
+    
+    /* font style */
+    --ff: "Poppins", sans-serif;
+    
+    /* font sizes */
+    --h1-m: 4rem;
+    --h2-m: 2.5rem ;
+    --h3-m: 2.25rem;
+    --h3-s: 1.75rem;
+    --h4-m: 1.25rem;
+    --p-m: 1.25rem;
+    
+    /* colors */
+    --color-1: white;
+    --color-2: black;
+    --color-3: rgb(0, 150, 64); 
+    --color-4: rgba(0, 0, 0, 0.4);
+    --color-5: #aca8a8;
+}
+
+/* general */
+body {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* header general */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 80px;
+    background-color: var(--color-3);
+}
+
+#header-container {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 900px;
+    height: 90%;
+}
+
+#logo {
+    position: absolute;
+    left: 0;
+    width: 180px;
+    height: 100%;
+}
+
+#logo-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#main-menu {
+    position: absolute;
+    width: 540px;
+    height: 100%;
+    left: 180px;
+    top: 50%;
+    transform: translate(0, -50%);
+    border: 2px solid blue;
+}
+
+#main-menu ul {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    transform: translate(0, -50%);
+    border: 2px solid red;
+}
+
+
+
+
+
+
+
+
+
+
